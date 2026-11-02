@@ -306,17 +306,19 @@
       margin-bottom: clamp(8px, 1.5vw, 16px);
     }
 
-    .photo-pair {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(12px, 1.6vw, 20px);
-      padding: clamp(56px, 8vw, 104px) 0;
+    .section-aside {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(18px, 2.4vw, 28px);
     }
 
-    .photo-pair .photo { aspect-ratio: 4 / 3; }
+    .section-photo {
+      aspect-ratio: 4 / 3;
+      max-width: 380px;
+    }
 
-    @media (min-width: 720px) {
-      .photo-pair { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 859px) {
+      .section-photo { max-width: none; aspect-ratio: 3 / 2; }
     }
 
     @media (max-width: 560px) {
@@ -551,7 +553,14 @@
       <hr class="rule" />
 
       <section class="section" id="about" aria-labelledby="about-title">
-        <h2 id="about-title" class="eyebrow">About</h2>
+        <div class="section-aside">
+          <h2 id="about-title" class="eyebrow">About</h2>
+          <figure class="photo section-photo">
+            <img src="https://images.unsplash.com/photo-1764426445444-5a528029fd62?auto=format&fit=crop&w=800&q=70"
+                 srcset="https://images.unsplash.com/photo-1764426445444-5a528029fd62?auto=format&fit=crop&w=480&q=70 480w, https://images.unsplash.com/photo-1764426445444-5a528029fd62?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1764426445444-5a528029fd62?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 859px) 100vw, 380px" alt="Athlete checking his watch between sets in a gym" loading="lazy" decoding="async" />
+          </figure>
+        </div>
         <div class="section-body">
           <p class="lead">WATTZN, LLC is a sports-technology company based in Cottonwood Heights, Utah.</p>
           <p>We're building tools that help people train with more confidence and less guesswork. Most people put in the work without a clear picture of whether it's paying off. We think that should change, and we're building the products to change it.</p>
@@ -561,25 +570,20 @@
       <hr class="rule" />
 
       <section class="section" id="status" aria-labelledby="status-title">
-        <h2 id="status-title" class="eyebrow">Status</h2>
+        <div class="section-aside">
+          <h2 id="status-title" class="eyebrow">Status</h2>
+          <figure class="photo section-photo">
+            <img src="https://images.unsplash.com/photo-1758875569399-99a7d80ace43?auto=format&fit=crop&w=800&q=70"
+                 srcset="https://images.unsplash.com/photo-1758875569399-99a7d80ace43?auto=format&fit=crop&w=480&q=70 480w, https://images.unsplash.com/photo-1758875569399-99a7d80ace43?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1758875569399-99a7d80ace43?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 859px) 100vw, 380px" alt="Coach and athlete reviewing a training plan together on a tablet" loading="lazy" decoding="async" />
+          </figure>
+        </div>
         <div class="section-body">
           <p class="lead">In private development.</p>
           <p>Our products are currently in private development with a small group of early partners. We'll share more soon. Join the early-access list below to hear first.</p>
         </div>
       </section>
 
-      <div class="photo-pair">
-        <figure class="photo">
-          <img src="https://images.unsplash.com/photo-1706029831385-1c89922848eb?auto=format&fit=crop&w=1600&q=70"
-               srcset="https://images.unsplash.com/photo-1706029831385-1c89922848eb?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1706029831385-1c89922848eb?auto=format&fit=crop&w=1024&q=70 1024w, https://images.unsplash.com/photo-1706029831385-1c89922848eb?auto=format&fit=crop&w=1600&q=70 1600w, https://images.unsplash.com/photo-1706029831385-1c89922848eb?auto=format&fit=crop&w=2400&q=70 2400w"
-               sizes="(max-width: 720px) 100vw, 50vw" alt="Weight plate on a barbell in a gym" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="photo">
-          <img src="https://images.unsplash.com/photo-1706029831405-619b27e3260c?auto=format&fit=crop&w=1600&q=70"
-               srcset="https://images.unsplash.com/photo-1706029831405-619b27e3260c?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1706029831405-619b27e3260c?auto=format&fit=crop&w=1024&q=70 1024w, https://images.unsplash.com/photo-1706029831405-619b27e3260c?auto=format&fit=crop&w=1600&q=70 1600w, https://images.unsplash.com/photo-1706029831405-619b27e3260c?auto=format&fit=crop&w=2400&q=70 2400w"
-               sizes="(max-width: 720px) 100vw, 50vw" alt="Athlete setting up to lift a barbell" loading="lazy" decoding="async" />
-        </figure>
-      </div>
 
       <hr class="rule" />
 
