@@ -1,0 +1,113 @@
+:root {
+  --bg: #f4f3ef;
+  --fg: #0d0d0d;
+  --fg-muted: #6b6862;
+  --line: rgba(13, 13, 13, 0.14);
+  --accent: #d62b1c;
+  --pad-x: clamp(22px, 4.6vw, 64px);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Helvetica Neue", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(22px, 3.2vw, 32px) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: clamp(14px, 1.3vw, 16px);
+  letter-spacing: 0.22em;
+  text-decoration: none;
+}
+
+.back {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+
+.back:hover { color: var(--fg); }
+
+article {
+  max-width: 72ch;
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+
+h1 {
+  font-size: clamp(36px, 5.6vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: 0 0 16px;
+}
+
+.updated {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin: 0 0 clamp(32px, 5vw, 48px);
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 40px 0 10px;
+}
+
+p, li {
+  font-size: 17px;
+  color: #2b2a27;
+}
+
+ul { padding-left: 1.2em; }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+footer nav { display: flex; gap: 28px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--fg); }

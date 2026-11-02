@@ -7,13 +7,13 @@
   <meta name="color-scheme" content="light" />
 
   <title>Wattzn — The future of strength intelligence.</title>
-  <meta name="description" content="Wattzn is building a new standard for understanding human performance. Join the early-access list." />
+  <meta name="description" content="WATTZN, LLC is a sports-technology company based in Cottonwood Heights, Utah, building tools that help people train with more confidence and less guesswork." />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Wattzn" />
   <meta property="og:title" content="Wattzn — The future of strength intelligence." />
   <meta property="og:description" content="Wattzn is building a new standard for understanding human performance. Join the early-access list." />
-  <meta property="og:url" content="https://wattzn.com/" />
+  <meta property="og:url" content="https://www.wattzn.com/" />
   <meta property="og:image" content="https://wattzn.com/og.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
@@ -127,6 +127,19 @@
       white-space: nowrap;
     }
 
+    .site-nav {
+      display: flex;
+      gap: clamp(18px, 2.4vw, 32px);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .site-nav a { transition: color 160ms ease; }
+    .site-nav a:hover { color: var(--fg); }
+
     /* Main */
     main {
       flex: 1 0 auto;
@@ -184,6 +197,94 @@
       line-height: 1.55;
       color: var(--fg-muted);
     }
+
+    /* Content sections */
+    .section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(20px, 3vw, 40px);
+      padding: clamp(56px, 8vw, 104px) 0;
+      scroll-margin-top: 24px;
+    }
+
+    @media (min-width: 860px) {
+      .section {
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        column-gap: var(--gutter);
+      }
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .section-body {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(14px, 1.6vw, 20px);
+      max-width: 62ch;
+    }
+
+    .section-body .lead {
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--fg);
+      text-wrap: balance;
+    }
+
+    .section-body p {
+      margin: 0;
+      font-size: clamp(16px, 1.4vw, 19px);
+      line-height: 1.55;
+      color: var(--fg-muted);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .facts > div {
+      display: grid;
+      grid-template-columns: minmax(0, 11ch) minmax(0, 1fr);
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .facts dt {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      padding-top: 3px;
+    }
+
+    .facts dd {
+      margin: 0;
+      font-size: clamp(16px, 1.4vw, 18px);
+      color: var(--fg);
+    }
+
+    .facts a {
+      border-bottom: 1px solid var(--line);
+      transition: border-color 160ms ease;
+    }
+
+    .facts a:hover { border-bottom-color: var(--fg); }
 
     /* CTA */
     .cta {
@@ -377,6 +478,7 @@
 
     @media (max-width: 560px) {
       .meta { display: none; }
+      .site-nav { gap: 16px; font-size: 11px; letter-spacing: 0.1em; }
       button[type="submit"] { width: 100%; justify-content: center; }
     }
   </style>
@@ -385,6 +487,11 @@
   <div class="shell">
     <header class="masthead">
       <a class="wordmark reveal" href="/" aria-label="Wattzn home">WATTZN</a>
+      <nav class="site-nav reveal" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#early-access">Early access</a>
+      </nav>
     </header>
 
     <hr class="rule reveal d1" />
@@ -400,7 +507,41 @@
 
       <hr class="rule" />
 
-      <section class="cta" aria-labelledby="cta-title">
+      <section class="section" id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="eyebrow">About</h2>
+        <div class="section-body">
+          <p class="lead">WATTZN, LLC is a sports-technology company based in Cottonwood Heights, Utah.</p>
+          <p>We're building tools that help people train with more confidence and less guesswork. Most people put in the work without a clear picture of whether it's paying off. We think that should change, and we're building the products to change it.</p>
+        </div>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="section" id="status" aria-labelledby="status-title">
+        <h2 id="status-title" class="eyebrow">Status</h2>
+        <div class="section-body">
+          <p class="lead">In private development.</p>
+          <p>Our products are currently in private development with a small group of early partners. We'll share more soon. Join the early-access list below to hear first.</p>
+        </div>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="eyebrow">Contact</h2>
+        <div class="section-body">
+          <dl class="facts">
+            <div><dt>Company</dt><dd>WATTZN, LLC</dd></div>
+            <div><dt>Location</dt><dd>Cottonwood Heights, Utah, USA</dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:lskinner@wattzn.com">lskinner@wattzn.com</a></dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+13853230532">(385) 323-0532</a></dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="cta" id="early-access" aria-labelledby="cta-title">
         <h2 id="cta-title" class="reveal d4">Join the early-access list.</h2>
         <div class="cta-body">
           <p class="reveal d4">Be among the first to hear what comes next.</p>
@@ -433,7 +574,11 @@
     <hr class="rule" />
 
     <footer>
-      <span>&copy; 2026 Wattzn LLC</span>
+      <span>&copy; 2026 WATTZN, LLC. All rights reserved.</span>
+      <nav aria-label="Legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+      </nav>
     </footer>
   </div>
 
