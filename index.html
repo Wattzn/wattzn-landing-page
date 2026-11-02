@@ -301,10 +301,72 @@
       filter: grayscale(100%) contrast(1.05);
     }
 
-    .photo-band {
-      aspect-ratio: 21 / 9;
-      margin-bottom: clamp(8px, 1.5vw, 16px);
+    /* 3D hero stage */
+    .hero { position: relative; isolation: isolate; }
+
+    .hero > :not(.lab):not(.lab-hud) { position: relative; z-index: 1; }
+
+    .lab {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 100vw;
+      transform: translateX(-50%);
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1200ms ease;
+      pointer-events: none;
     }
+
+    .lab.is-live { opacity: 1; }
+
+    .lab canvas { display: block; width: 100%; height: 100%; }
+
+    .hero.has-lab {
+      min-height: min(94svh, 1040px);
+      padding-top: clamp(300px, 52svh, 600px);
+    }
+
+    .lab-hud {
+      position: absolute;
+      top: clamp(18px, 2.4vw, 28px);
+      right: 0;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-variant-numeric: tabular-nums;
+      z-index: 1;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(244, 243, 239, 0.78);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity 600ms ease 600ms;
+    }
+
+    .hero.has-lab .lab-hud { opacity: 1; }
+
+    .lab-tag { display: inline-flex; align-items: center; gap: 10px; }
+
+    .lab-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0.25; } }
+
+    .lab-hud [data-hud="height"] { color: var(--fg); min-width: 6ch; text-align: right; }
 
     .photo-pair {
       display: grid;
@@ -320,7 +382,12 @@
     }
 
     @media (max-width: 560px) {
-      .photo-band { aspect-ratio: 4 / 3; }
+      .hero.has-lab { padding-top: clamp(260px, 46svh, 420px); }
+      .lab-hud [data-hud="phase"] { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lab-dot { animation: none; }
     }
 
     /* CTA */
@@ -535,6 +602,12 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
+        <div class="lab" id="lab" aria-hidden="true"></div>
+        <div class="lab-hud" aria-hidden="true">
+          <span class="lab-tag"><span class="lab-dot"></span>Strength lab</span>
+          <span data-hud="phase">Concentric</span>
+          <span data-hud="height">00 cm</span>
+        </div>
         <h1 id="hero-title" class="reveal d1">The future of strength intelligence<span class="dot">.</span></h1>
         <div class="hero-body">
           <p class="reveal d2">Wattzn is building a new standard for understanding human performance.</p>
@@ -542,11 +615,6 @@
         </div>
       </section>
 
-      <figure class="photo photo-band reveal d4">
-        <img src="https://images.unsplash.com/photo-1526409499567-9f0af1fcb6d1?auto=format&fit=crop&w=1600&q=70"
-               srcset="https://images.unsplash.com/photo-1526409499567-9f0af1fcb6d1?auto=format&fit=crop&w=640&q=70 640w, https://images.unsplash.com/photo-1526409499567-9f0af1fcb6d1?auto=format&fit=crop&w=1024&q=70 1024w, https://images.unsplash.com/photo-1526409499567-9f0af1fcb6d1?auto=format&fit=crop&w=1600&q=70 1600w, https://images.unsplash.com/photo-1526409499567-9f0af1fcb6d1?auto=format&fit=crop&w=2400&q=70 2400w"
-               sizes="(max-width: 1280px) 100vw, 1152px" alt="Close-up of a lifter gripping a loaded barbell on a gym floor" loading="eager" decoding="async" />
-      </figure>
 
       <hr class="rule" />
 
@@ -638,6 +706,15 @@
     </footer>
   </div>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="/lab.js"></script>
   <script>
     (function () {
       var form = document.getElementById("signup");
